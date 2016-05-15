@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>Background Image</title>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+
+
+    <style type="text/css">
+
+      body {
+       /* width: 5000px;*/
+        /*background-image: url('{% static "img/beach1.jpg" %}');*/
+        background: url('{% static "img/beach1.jpg" %}') no-repeat center center fixed;
+        -webkit-background-size:cover;
+        -moz-background-size:cover;
+        -o-background-size:cover;
+        background-size:cover;
+
+        
+     /*   background-image: no-repeat;*/
+        /*background-image: repeat-x;*/
+        /*background-image: repeat-y;*/
+      }
+      .navbar{
+        margin-bottom: 0px !important;
+        border-radius: 0px !important;
+      }
+      .navbar-inverse .navbar-brand, .navbar-brand:hover {
+          color: white;
+      }
+     /* .progress-bar {
+        color: black;
+      }*/
+
+    </style>
+
+  </head>
+
+  <body>
+   <!--  <img src="{% static 'img/beach1.jpg' %}"/> -->
+  </body>
+
+ </html>

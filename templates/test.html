@@ -1,0 +1,46 @@
+
+<!doctype html>
+
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Responsive Full Background Image</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Six Revisions">
+  <meta name="description" content="How to use the CSS background-size property to make an image fully span the entire viewport.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="http://fonts.googleapis.com/css?family=Kotta+One|Cantarell:400,700" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Not required: presentational-only.css only contains CSS for prettifying the demo -->
+  <link rel="stylesheet" href="{% static 'css/presentational-only.css' %}">
+
+  <!-- responsive-full-background-image.css stylesheet contains the code you want -->
+  <link rel="stylesheet" href="{% static 'css/responsive-full-background-image.css' %}">
+  
+  <!-- Not required: jquery.min.js and presentational-only.js is only used to demonstrate scrolling behavior of the viewport  -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="{% static 'css/presentational-only.js' %}"></script>
+</head>
+<body>
+  
+
+  <form class= "form-horizontal" method="POST" action = "">  {% csrf_token %}
+      <div class='form-group form-group-lg' >
+      {{ form.as_p }}
+       
+         <div class="input-group">
+            <input class="form-control" type="email" name="email" placeholder="Your Email...">
+           <span class="input-group-btn">
+              <input type='submit' value='Join' class = 'btn btn-lg' />
+            </span>
+         </div>
+      </div> 
+     
+    </form>
+</body>
+</html>

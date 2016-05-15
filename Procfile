@@ -1,0 +1,1 @@
+web: gunicorn princeTeam.wsgi --log-file -

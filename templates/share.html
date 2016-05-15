@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+
+{% block styles %}
+  <style type="text/css">
+   .progress-bar {
+	    background-color: #289CD0;
+	}
+  </style>
+{% endblock %}
+
+
+{% block jquery %}
+	$signUpCount = {{ count }}
+
+	//$(".progress-bar").css("width","50%").attr("aria-valuenow","80").text("80%"); 
+
+	function completeBlock(progressBarId)
+	{
+		$(progressBarId).css("width", "100%").attr("aria-valuenow","100%").text("Completed");
+	};
+
+	function setNewPerc(progressBarId,percentNum,newText)
+	{
+		$(progressBarId).css("width",percentNum + "%").attr("aria-valuenow",percentNum + "%")
+
+		
+		if (percentNum >0 && percentNum <85)
+		{
+			$(progressBarId).text(newText);
+		}
+		else if(percentNum >=85 && percentNum <=90)
+		{
+			$(progressBarId).text("Almost...");
+		}
+
+	};
+
+	if ($signUpCount == 0){
+
+	}
+	else if($signUpCount > 0 && $signUpCount <5){
+		$newPercent = ($signUpCount/5) * 100;
+		setNewPerc("#count5",$newPercent, $signUpCount + " Joined");
+	}
+	else if ($signUpCount >= 5 && $signUpCount < 15){
+		completeBlock("#count5");
+		$newCount = $signUpCount - 5;
+		$newPercent = ($newCount/10) * 100;
+		setNewPerc("#count15",$newPercent, $newPercent + "%");
+	}
+	else if ($signUpCount >= 15 && $signUpCount < 25){
+		completeBlock("#count5");
+		completeBlock("#count15");
+		$newCount = $signUpCount - 15;
+		$newPercent = ($newCount/10) * 100;
+		setNewPerc("#count25",$newPercent, $newPercent + "%");
+	}
+	else if ($signUpCount >= 25 && $signUpCount < 50){
+		completeBlock("#count5");
+		completeBlock("#count15");
+		completeBlock("#count25");
+		$newCount = $signUpCount - 25;
+		$newPercent = ($newCount/25) * 100;
+		setNewPerc("#count50",$newPercent, $newPercent + "%");
+	}
+	else
+	{	
+		completeBlock("#count5");
+		completeBlock("#count15");
+		completeBlock("#count25");
+		completeBlock("#count50");
+	}
+
+{% endblock %}
+
+
+
+{% block content %}
+{% include "navbar.html" %}
+	 <div class="jumbotron" style="background-color:white">
+      <div class="container">
+      	<div class="row"> 
+	        <div class='col-md-6 pull-right' style="text-align:center"> 
+	          <h1><i class="fa fa-share-alt" aria-hidden="true"></i>
+	          	<br/>
+	          	Invite Friends &amp; <br/> Earn Rewards</h1>
+	          <p>Share your unique link below via Email, Facebook, Twitter, Reddit, or LinkedIn to earn rewards
+	          	from ErrandRunner.com.</p>
+	          <div class="well" style="background-color:white;"> {{ ref_url }} </div> <br/> Share<br/>
+	          <a href="https://www.facebook.com/sharer/sharer.php?u={{ ref_url }}" target="blank">
+				 <i class="fa fa-facebook-square fa-4x" aria-hidden="true" style="color:#3B5998"></i>
+			  </a>
+			  <a href="https://twitter.com/home?status=This%20website%20it%27s%20going%20to%20be%20awesome...%20Come%20join%20and%20help%20them%20launch%20it!%20%23Errandrunner%20and%20%40carlosgonzalez%20http%3A%2F%2Ferrandrunner.com%2F" target="blank">
+				 <i class="fa fa-twitter-square fa-4x" aria-hidden="true" style="color:#4099FF"></i>
+				</a>
+			 <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ ref_url }}&title=This%20website%20it%27s%20going%20to%20be%20awesome&summary=%20Come%20join%20and%20help%20them%20launch%20it!%20&source={{ ref_url }}" target="blank">
+			 	<i class="fa fa-linkedin-square fa-4x" aria-hidden="true" style="color:#007BB6"></i>
+			 </a>
+			 <a href="http://www.reddit.com/submit?url={{ ref_url }}&title=This%20website%20it%27s%20going%20to%20be%20awesome%20Come%20join%20and%20help%20them%20launch%20it!%20" target="blank">
+			 	 <i class="fa fa-reddit-square fa-4x" aria-hidden="true" style="color:#900020"></i>
+			 </a>
+	           <a href='https://plus.google.com/share?url={{ ref_url }}' target="blank">
+	          	<i class="fa fa-google-plus-square fa-4x" aria-hidden="true" style="color:#D34836"></i>
+	          </a>
+	         
+	        </div>
+	        <div class='col-md-6 pull-left'> 
+	           <img src="{% static 'img/launch.jpg' %}" class="img-responsive img-rounded"/> 
+	        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="text-align:center;">
+		Joined number is: {{ count }}  <br/>
+
+    	<div class="row">
+    		<div class="col-sm-3">
+    			<h3> 5 Friends Joined </h3>
+				<div class="progress">
+				  <div class="progress-bar" id="count5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5" style="min-width: 0em; width:0%;">
+				  	<span style="color:black">0%</span>
+				  </div>
+				</div>
+				<h4>Reward Name</h4>
+				<img src="{% static 'img/uber_72.png' %}"/>
+				<hr/>
+				<span style="text-align:left;">
+				<h5>Rewards Include:</h5>
+					<ul>
+						<li>Reward 1</li>
+						<li>Reward 2</li>
+					</ul>
+				</span>
+				<hr/>
+			</div>
+
+			<div class="col-sm-3">
+				<h3> 15 Joined </h3>
+				<div class="progress">
+				  <div class="progress-bar" id="count15" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="min-width: 0em; width:0%;">
+				  	<span style="color:black">0%</span>
+				  </div>
+				</div>
+				<h4>Reward Name</h4>
+				<img src="{% static 'img/reward_icon_72.png' %}"/>
+				<img src="{% static 'img/reward_icon_72.png' %}"/>
+				<hr/>
+				<span style="text-align:left;">
+				<h5>Rewards Include:</h5>
+					<ul>
+						<li>Reward 1</li>
+						<li>Reward 2</li>
+					</ul>
+				</span>
+				<hr/>
+			</div>
+
+			<div class="col-sm-3">
+				<h3> 25 Joined </h3>
+				<div class="progress">
+				  <div class="progress-bar" id="count25" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="25" style="min-width: 0em; width:0%;">
+				  	<span style="color:black">0%</span>
+				  </div>
+				</div>
+				<h4>Reward Name</h4>
+				<img src="{% static 'img/reward_icon_72.png' %}"/>
+				<img src="{% static 'img/reward_icon_72.png' %}"/>
+				<hr/>
+				<span style="text-align:left;">
+				<h5>Rewards Include:</h5>
+					<ul>
+						<li>Reward 1</li>
+						<li>Reward 2</li>
+					</ul>
+				</span>
+				<hr/>
+			</div>
+
+			<div class="col-sm-3">
+				<h3> 50 Joined </h3>
+				<div class="progress">
+				  <div class="progress-bar" id="count50" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50" style="min-width: 0em; width:0%;">
+				   <span style="color:black">0%</span>
+				  </div>
+				</div>
+				<h4>Reward Name</h4>
+				<img src="{% static 'img/reward_icon_72.png' %}"/>
+				<img src="{% static 'img/reward_icon_72.png' %}"/>
+				<hr/>
+				<span style="text-align:left;">
+				<h5>Rewards Include:</h5>
+					<ul>
+						<li>Reward 1</li>
+						<li>Reward 2</li>
+					</ul>
+				</span>
+				<hr/>
+			</div>
+		</div>
+
+		<div class= "row"> 
+		    <div class="col-sm-12 featured-row">
+		        <div class="col-sm-3">
+		          <i class="fa fa-envelope fa-5x features-icon" aria-hidden="true"></i>
+		          <h2>Feature</h2>
+		          <p class="lead">
+		            some feature text goes here
+		          </p>
+		        </div>
+
+		        <div class="col-sm-3">
+		          <i class="fa fa-ticket fa-5x features-icon" aria-hidden="true"></i>
+		          <h2>Feature</h2>
+		          <p class="lead">
+		            some feature text goes here
+		          </p>
+		        </div>
+
+		        <div class="col-sm-3">
+		          <i class="fa fa-shopping-cart fa-5x features-icon" aria-hidden="true"></i>
+		          <h2>Feature</h2>
+		          <p class="lead">
+		            some feature text goes here
+		          </p>
+		        </div>
+
+		        <div class="col-sm-3">
+		          <i class="fa fa-key fa-5x features-icon" aria-hidden="true"></i>
+		          <h2>Feature</h2>
+		          <p class="lead">
+		            some feature text goes here
+		          </p>
+		        </div>
+		    </div>
+	 	 </div>
+
+
+	</div>
+
+	
+{% endblock %}
+
+
+
