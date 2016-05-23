@@ -10,90 +10,32 @@
   body {
     padding: 0;
     margin: 0;
-  
-}
-
-.tophome
-{
-  /* Location of the image */
- /* background-image: url('{% static "img/home.jpg" %}');*/
-  background-image: url('{% static "img/contact.jpg" %}');
-
-  /* Image is centered vertically and horizontally at all times */
-  /*background-position: center center;*/
-  
-  /* Image doesn't repeat */
-  background-repeat: no-repeat;
-  
-  /* Makes the image fixed in the viewport so that it doesn't move when 
-     the content height is greater than the image height */
-  background-attachment: fixed;
-  
-  /* This is what makes the background image rescale based on its container's size */
-  background-size: cover;
-  
-  /* Pick a solid background color that will be displayed while the background image is loading */
-  background-color:#464646;
-  
-  /* SHORTHAND CSS NOTATION
-   * background: url(background-photo.jpg) center center cover no-repeat fixed;
-   */
-
+     font-family: "Goudy-Trajan" !important;
+    font-weight: 100;
+    letter-spacing: 2px;
+    background-repeat: no-repeat;
+    width:100%;
+    height:100%;
+    position:relative;
+        
+    /* Pick a solid background color that will be displayed while the background image is loading */
+    background-color:#464646;
+    background-image: url('{% static "img/background.jpg" %}');
 }
   
   .contact
   {
-      background-image: url('{% static "img/contact.jpg" %}');
-    
-      /* Image is centered vertically and horizontally at all times */
-      /*background-position: center center;*/
-      
-      /* Image doesn't repeat */
-      background-repeat: no-repeat;
-      
-      /* Makes the image fixed in the viewport so that it doesn't move when 
-         the content height is greater than the image height */
-      background-attachment: fixed;
-      
-      /* This is what makes the background image rescale based on its container's size */
-      background-size: cover;
-      
-      /* Pick a solid background color that will be displayed while the background image is loading */
-      background-color:#464646;
-
       padding: 0;
-      margin: 0;
-
+      margin: 10% 0 0 0;
   }
   .building{
-       background-image: url('{% static "img/building.jpg" %}');
-    
-      /* Image is centered vertically and horizontally at all times */
-      background-position: center center;
-      
-      /* Image doesn't repeat */
-      background-repeat: no-repeat;
-      
-      /* Makes the image fixed in the viewport so that it doesn't move when 
-         the content height is greater than the image height */
-      background-attachment: fixed;
-      
-      /* This is what makes the background image rescale based on its container's size */
-      background-size: cover;
-      background-size: contain;
-      
-      /* Pick a solid background color that will be displayed while the background image is loading */
-      background-color:#464646;
+     
       margin: 0;
   }
-  /*.container
-  {
-     padding: 0;
-     margin: 0;
-  }*/
+  
    .building-img
   {
-    padding: 1em;
+    padding: 2.5em 1em 1em 1em;
   }
   .focusedInput {
     border-color: rgba(208, 89, 99, 0.8);
@@ -102,6 +44,54 @@
     -moz-box-shadow: 0 0 8px rgba(189, 151, 154, 0.6);
     box-shadow: 0 0 8px rgba(189, 151, 154, 0.6) !important;
   }
+  input,textarea
+  {
+    border: none !important;
+    background-color: #ededee !important;
+    color: #000 !important;
+    font-size: 10px !important;
+  }
+  .form-group .field-list .field .field-element {
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0 4px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: normal;
+    box-sizing: border-box;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.form-group .field-list .control-label {
+    padding: .5em 0 .5em;
+    font-size: 12px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    -moz-opacity: .7;
+    -khtml-opacity: .7;
+    opacity: .7;
+    display: block;
+}
+
+.form-group input[type="submit"] {
+    width: 100%;
+    background-color: #ededee;
+    color: #000;
+    text-transform: uppercase;
+    padding-top: 17px;
+    padding-bottom: 25px;
+    font-size: 12px;
+}
+input[type="submit"]:hover
+{
+  background-color: #F3F3F3 !important;
+}
+.form-group-lg .form-control {
+    border-radius: 2px !important;
+}
    #arrow
     {
       margin:-13% !important;
@@ -112,61 +102,168 @@
       bottom: 25%;
       background-color: none;
     }
+     #formContainer
+    {
+       width: 100% !important;
+       height: 100% !important;
+    }
+    #companyLogo
+    {
+       max-height:40%; 
+       height:40%;
+       min-width:40%; 
+       width:150px !important;
+       position:relative; 
+       right:0px; 
+       float:right;
+       margin-top: 0px;
+    }
+    #teamLogo
+    {
+      height:5em; 
+      float:left;
+    }
   
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1720px) {
     
     #arrow
     {
        margin:-14% !important;
     }
-  }
+     #formContainer
+    {
+      width:80% !important;
+      height:70% !important;
+      margin-bottom:7em;
+    }
+    #stickyFooter {
+      height: 6.5em;
+    }
+    #companyLogo
+    { 
+       width:180px !important; 
+       margin-top: 0px;
+    }
+}
+@media only screen and (max-width: 1220px) {
+#companyLogo
+    { 
+       width:120px !important; 
+       margin-top: 8px;
+    }
+}
 
 @media only screen and (max-width: 950px) {
     #arrow
     {
        margin:-20% !important;
     }
+    #formContainer
+    {
+      height: 90% !important;
+      width:80% !important;
+      margin-bottom:10em;
+    }
+    #stickyFooter {
+      height: 5em;
+    }
   }
 
 /* For mobile devices */
-@media only screen and (max-width: 769px) {
-    body {
-      /* The file size of this background image is 93% smaller
-       * to improve page load speed on mobile internet connections */
-      background-image: url(images/background-photo-mobile-devices.jpg);
-    }
+@media only screen and (max-width: 769) {
      #arrow
     {
        margin:-22% !important;
     }
+    .contact
+    {
+      margin-top: 80% !important;
+    }
+
      #formContainer
     {
        width: 100% !important;
+       height: 90% !important;
+    }
+     #stickyFooter {
+      height: 5em;
+    }
+    p.leaderName
+    {
+      font-size: 1em !important;
+    }
+
+    p.leaderContact
+    {
+      font-size: 0.8em !important;
     }
   }
 
-  @media only screen and (max-width: 550px) {
+  @media only screen and (max-width: 580px) {
      #arrow
     {
        margin:-25% !important;
     }
-  }
-
-  @media only screen and (max-width: 440px) {
+    .contact
+    {
+      margin-top: 80% !important;
+    }
      #formContainer
     {
        width: 100% !important;
+       height: 92% !important;
     }
+    p.leaderName
+    {
+      font-size: 0.8em !important;
+      text-align: left !important;
+      margin: 0 !important;
+    }
+
+    p.leaderContact
+    {
+      font-size: 0.7em !important;
+      text-align: left !important;
+      margin: 0 !important;
+    }
+    #teamLogo
+    {
+        margin-top: 18px;
+        height: 70px !important;
+        width: 150px !important;
+    }
+
+   
+  }
+
+  @media only screen and (max-width: 319px) {
     #ArrowLink
     {
       display: none;
     }
+    #formContainer
+    {
+       width: 100% !important;
+       height: 92%;
+    }
+    p.leaderName
+    {
+      font-size: 0.7em !important;
+      text-align: left !important;
+      margin: 0 !important;
+      padding: 0;
+    }
+
+    p.leaderContact
+    {
+      font-size: 0.6em !important;
+      text-align: left !important;
+      margin: 0 !important;
+      padding: 0;
+    }
   }
 
-  /*.lead-form
-  {
-    padding-bottom: 10px;
-  }*/
+
   .form-control
   {
     margin: 5px;
@@ -180,6 +277,9 @@
     margin: 0 !important;
     font-weight: bold;
   }
+  p {
+    padding: 0em 1em;
+  }
   .fullscreen
   {
     padding:0 !important; 
@@ -188,20 +288,215 @@
     height:100%; 
   }
 
+#stickyFooter {
+     position: fixed;
+     bottom: 0px;
+     width: 100%;
+     overflow: visible;
+     z-index: 99;
+     padding-top: 0.5%;
+     padding-bottom: 1%;
+     background-color: #dcdddf;
+     height: 6em;
+}
 
+#wrapper
+{
+   width:100%;
+    height:100%;
+    border: 0;
+    margin: 0;
+}
+
+html {
+    width:100%;
+    height:100%;
+}
+body {
+  
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+.leaderName, .leaderContact
+{
+  text-transform: uppercase;
+  text-align: center;
+}
+#leader
+{
+  height:100%; 
+  margin-top:1.4em;
+}
+.leaderName 
+{
+  font-size: 1.7em;
+  font-weight: 300;
+  padding-bottom: 0.2em;
+}
+.leaderContact
+{
+  font-size: 1.1em;
+  font-weight: 100;
+}
+
+.centerBlock 
+{
+    display: table;
+    margin: 0 auto;
+}
 </style>
 
 {% endblock %}
 
 {% block form %}
   
- 
+  
+    <div class="container-fluid" style="margin-top: -15%;"> 
+       <div class="container center-block" style = "padding:0;">
+          <a href="#contactForm">
+            <img class="img-responsive" src="{% static 'img/LogoSilver.png' %}"/>
+          </a>
+       </div>
 
-   <div class="container container-fluid tophome fullscreen" style="padding:0;margin:0;">
-      <img class="img-responsive fullscreen"  src="{% static 'img/home.jpg' %}"/>      
+       <div class="container-fluid row center-block" style="margin-top:-17%; width:85%;">
+            <img class="img-responsive container-fluid col-xs-12 col-md-6 col-md-offset-3"src="{% static 'img/ComingSoon.png' %}" />
+       </div>
+
+       <div class="container-fluid row center-block" style="margin-top:4% !important;">
+            <img class="img-responsive container-fluid col-xs-12 col-md-6 col-md-offset-3" 
+            src="{% static 'img/LuxLiving.png' %}"/>
+       </div>
+
+
+
+   <div class="container contact"> 
+     <div class="container"> 
+        <div class="container-fluid row center-block" id="formContainer" style="background-color:white;">
+         
+            <div class="container-fluid col-xs-12 col-sm-12 col-md-5">
+              <img class="img-responsive building-img " src="{% static 'img/building.jpg' %}"/>
+            </div>
+     
+          <div class="container-fluid col-xs-12 col-sm-12 col-md-7">
+              <h1 class = "text-center">Get In Touch</h1>
+              <p> To learn more about 338 West 15th Street, fill out the form below and we will get in touch with you shortly.</p>
+              <form id = "contactForm" class= "form-horizontal" method="POST" action = "">  {% csrf_token %}
+                  <div class='form-group form-group-lg' >
+                  <!-- {{ form.as_p }} -->
+                    {% if form.errors %}
+                        {% for err in form.errors %}
+
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Oh snap!</strong> The {{ err }} field is required.
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+
+                   <div class="row center-block container-fluid" style = "padding-top:1em;">
+                      <div class="col-xs-12 col-sm-12 col-centered">
+                        <div class="row lead-form">
+                            <div class="col-xs-12 col-sm-6"> 
+                              <input class="form-control {% if form.errors.firstname %}focusedInput"autofocus {% endif %} type="text" maxlength="120" name="firstname" placeholder="First Name*" >
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                              <input class="form-control {% if form.errors.lastname %}focusedInput"autofocus {% endif %} type="text" maxlength="120" name="lastname" placeholder="Last Name*">
+                            </div>
+                         </div>
+
+                         <div class="row lead-form">
+                           <div class="col-xs-12 col-sm-6">
+                              <input class="form-control" type="tel" maxlength="16" name="phone_number" placeholder="Phone">
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                              <input class="form-control {% if form.errors.email %}focusedInput"autofocus {% endif %} type="email" maxlength="254" name="email" placeholder="E-mail*">
+                            </div>
+                         </div>
+
+                         <div class="row lead-form">
+                            <div class="col-xs-12 col-sm-6">
+                              <input class="form-control" type="type" maxlength="120" name="address" placeholder="Address">
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                              <input class="form-control" type="type" maxlength="60" name="city" placeholder="City">
+                            </div>
+                         </div>
+
+                         <div class="row lead-form">
+                           <div class="col-xs-12 col-sm-6">
+                              <input class="form-control" type="type" maxlength="60" name="state" placeholder="State">
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                              <input class="form-control" type="type" maxlength="5" name="zip_code" placeholder="Zip Code">
+                            </div>
+                         </div>
+
+                        <div class="row lead-form"> 
+                           <div class="col-xs-12 col-sm-12">
+                           <div class="radio">
+
+                             <label class="control-label" style="padding:0px 30px 5px 30px;">Are you a broker?*
+                                <label>
+                                  <input class="float-right" type="checkbox" name="broker" id="broker" value="1" checked>
+                                <!-- <label>
+                                  <input class="float-right" type="radio" name="broker" id="broker" value="1" checked>
+                                  Yes
+                                </label>
+                                <label>
+                                  <input class="float-right" type="radio" name="broker" id="broker" value="0">
+                                  No
+                                </label> -->
+                              </label>
+                            </div>
+                          </div>
+                          </div>
+
+                          <div class="row lead-form"> 
+                           <div class="col-xs-12 col-sm-12 col-md-12">
+                          <textarea class="form-control" name="comments" rows="7" placeholder="Comments or Questions?"></textarea>
+                          </div>
+                          </div>
+
+                          <div class="row lead-form">
+                             <span class= "col-xs-12 col-sm-12 col-md-12">
+                                <input type='submit' value='Submit' class = 'form-control btn btn-default btn-lg' />
+                              </span>
+                          </div>
+                          <div class="row" style="padding-top:5px;">
+                             <h4 class = "text-center">Exclusive Listing Agent</h4>
+                             <h4 class = "text-center">Prince Dockery and The Prince Team</h4>
+                             <h4 class = "text-center">646.580.7362 - prince@townresidential.com</h4>
+                          </div>
+                      </div>
+                    </div>
+                 </div>
+              </form>
+               </div>
+          
+          </div>
+      </div>
+    </div>
    </div>
 
-  
+
+   <div class="container-fluid row center-block" id="stickyFooter">
+       <div class="container-fluid col-xs-3 col-sm-3 col-md-2">
+         <img class="img-responsive" id="teamLogo" src="{% static 'img/ThePrinceTeamLogo.png' %}"/> 
+       </div>
+
+       <div class="container-fluid col-xs-9 col-sm-6 col-md-8" id="leader">
+         <p class="leaderName">prince dockery</p> 
+         <p class="leaderContact">prince@townresidential.com - 646.580.7362</p> 
+       </div>
+
+       <div class="container-fluid col-xs-0 col-sm-3 col-md-2" style="height:150%; margin-top:1.6%;">
+          <img class="img-responsive" id="companyLogo"  style="" src="{% static 'img/Townlogo.png' %}"/>
+       </div>
+         
+  </div>
 
 {% endblock %}
 

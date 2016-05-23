@@ -7,13 +7,212 @@
 {% block styles %}
 
 <style type="text/css">
-  .thanks {
-  
-  /* Pick a solid background color that will be displayed while the background image is loading */
-  background-color:#464646;
- 
+  body {
+    padding: 0;
+    margin: 0;
+     font-family: "Goudy-Trajan" !important;
+    font-weight: 100;
+    letter-spacing: 2px;
+    background-repeat: no-repeat;
+    width:100%;
+    height:100%;
+    position:relative;
+        
+    /* Pick a solid background color that will be displayed while the background image is loading */
+    background-color:#464646;
+    background-image: url('{% static "img/background.jpg" %}');
 }
-.fullscreen
+  
+  .contact
+  {
+      padding: 0;
+      margin: 10% 0 0 0;
+  }
+  .building{
+     
+      margin: 0;
+  }
+  
+   .building-img
+  {
+    padding: 2.5em 1em 1em 1em;
+  }
+
+   #arrow
+    {
+      margin:-13% !important;
+    }
+   #ArrowLink
+    {
+      position: relative;
+      bottom: 25%;
+      background-color: none;
+    }
+     #formContainer
+    {
+       width: 100% !important;
+       height: 100% !important;
+    }
+    #companyLogo
+    {
+       max-height:40%; 
+       height:40%;
+       min-width:40%; 
+       width:150px !important;
+       position:relative; 
+       right:0px; 
+       float:right;
+       margin-top: 0px;
+    }
+    #teamLogo
+    {
+      height:5em; 
+      float:left;
+    }
+  
+@media only screen and (max-width: 1720px) {
+    
+    #arrow
+    {
+       margin:-14% !important;
+    }
+     #formContainer
+    {
+      width:80% !important;
+      height:70% !important;
+      margin-bottom:7em;
+    }
+    #stickyFooter {
+      height: 6.5em;
+    }
+    #companyLogo
+    { 
+       width:180px !important; 
+       margin-top: 0px;
+    }
+}
+@media only screen and (max-width: 1220px) {
+#companyLogo
+    { 
+       width:120px !important; 
+       margin-top: 8px;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    #arrow
+    {
+       margin:-20% !important;
+    }
+    #formContainer
+    {
+      height: 90% !important;
+      width:80% !important;
+      margin-bottom:10em;
+    }
+    #stickyFooter {
+      height: 5em;
+    }
+  }
+
+/* For mobile devices */
+@media only screen and (max-width: 769) {
+     #arrow
+    {
+       margin:-22% !important;
+    }
+    .contact
+    {
+      margin-top: 80% !important;
+    }
+
+     #formContainer
+    {
+       width: 100% !important;
+       height: 90% !important;
+    }
+     #stickyFooter {
+      height: 5em;
+    }
+    p.leaderName
+    {
+      font-size: 1em !important;
+    }
+
+    p.leaderContact
+    {
+      font-size: 0.8em !important;
+    }
+  }
+
+  @media only screen and (max-width: 580px) {
+     #arrow
+    {
+       margin:-25% !important;
+    }
+    .contact
+    {
+      margin-top: 80% !important;
+    }
+  
+    p.leaderName
+    {
+      font-size: 0.8em !important;
+      text-align: left !important;
+      margin: 0 !important;
+    }
+
+    p.leaderContact
+    {
+      font-size: 0.7em !important;
+      text-align: left !important;
+      margin: 0 !important;
+    }
+    #teamLogo
+    {
+        margin-top: 18px;
+        height: 70px !important;
+        width: 150px !important;
+    }
+   
+  }
+
+  @media only screen and (max-width: 319px) {
+    #ArrowLink
+    {
+      display: none;
+    }
+    #formContainer
+    {
+       width: 100% !important;
+       height: 92%;
+    }
+    p.leaderName
+    {
+      font-size: 0.7em !important;
+      text-align: left !important;
+      margin: 0 !important;
+      padding: 0;
+    }
+
+    p.leaderContact
+    {
+      font-size: 0.6em !important;
+      text-align: left !important;
+      margin: 0 !important;
+      padding: 0;
+    }
+  }
+
+  h4
+  {
+    margin: 0 !important;
+    font-weight: bold;
+  }
+  p {
+    padding: 0em 1em;
+  }
+  .fullscreen
   {
     padding:0 !important; 
     margin:0 !important; 
@@ -21,15 +220,65 @@
     height:100%; 
   }
 
-/* For mobile devices */
-/*@media only screen and (max-width: 767px) {
-  body {*/
-    /* The file size of this background image is 93% smaller
-     * to improve page load speed on mobile internet connections */
-  /*  background-image: url(images/background-photo-mobile-devices.jpg);
-  }
-  }*/
+#stickyFooter {
+     position: fixed;
+     bottom: 0px;
+     width: 100%;
+     overflow: visible;
+     z-index: 99;
+     padding-top: 0.5%;
+     padding-bottom: 1%;
+     background-color: #dcdddf;
+     height: 6em;
+}
 
+#wrapper
+{
+   width:100%;
+    height:100%;
+    border: 0;
+    margin: 0;
+}
+
+html {
+    width:100%;
+    height:100%;
+}
+body {
+  
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+.leaderName, .leaderContact
+{
+  text-transform: uppercase;
+  text-align: center;
+}
+#leader
+{
+  height:100%; 
+  margin-top:1.4em;
+}
+.leaderName 
+{
+  font-size: 1.7em;
+  font-weight: 300;
+  padding-bottom: 0.2em;
+}
+.leaderContact
+{
+  font-size: 1.1em;
+  font-weight: 100;
+}
+
+.centerBlock 
+{
+    display: table;
+    margin: 0 auto;
+}
 </style>
 
 {% endblock %}
@@ -37,25 +286,37 @@
 {% block form %}
   
 
-  <!-- <div class="container container-fluid thanks">
-     
-      <div class="row container-fluid">
-          <div class="col-xs-12" style="height:100%;"> -->
-          
-           <!--  <button style="padding:0.1em 2.8em; font-weight:900; font-size:28px; margin-top:41%;" name="back" class="btn btn-default btn-lg center-block" onClick="javascript:history.go(-1);">
-                BACK
-            </button> -->
-            <!-- <button class="col-md-4"type="back" class="btn btn-default btn-lg center-block" onClick="javascript:history.go(-1);">Large button</button> -->
-       <!--    </div>
-      </div>
-   </div> -->
+<div class="container-fluid" style="margin-top: -15%;"> 
+       <div class="container center-block" style = "padding:0;">
+            <img class="img-responsive" src="{% static 'img/LogoSilver.png' %}"/>
+       </div>
 
+       <div class="container-fluid row center-block" style="margin:-17% 0 0 6%; width:85%;">
+            <img class="img-responsive container-fluid col-xs-12 col-md-6 col-md-offset-3"src="{% static 'img/ThankYou.png' %}" />
+       </div>
 
-<div class="container container-fluid tophome fullscreen">
-      <img class="img-responsive fullscreen" src="{% static 'img/thanks2.png' %}"/>     
-</div>
-  
+       <div class="container-fluid row center-block" style="margin-top:2% !important;">
+            <h3  class="img-responsive container-fluid col-xs-9 col-xs-offset-2 col-md-4 col-md-offset-4"style="text-transform:uppercase; text-align: center; color:white;"> A member of the prince team will contact you shortly</h3>
+       </div>
 
+   </div>
+   
+
+   <div class="container-fluid row center-block" id="stickyFooter">
+       <div class="container-fluid col-xs-3 col-sm-3 col-md-2">
+         <img class="img-responsive" id="teamLogo" src="{% static 'img/ThePrinceTeamLogo.png' %}"/> 
+       </div>
+
+       <div class="container-fluid col-xs-9 col-sm-6 col-md-8" id="leader">
+         <p class="leaderName">prince dockery</p> 
+         <p class="leaderContact">prince@townresidential.com - 646.580.7362</p> 
+       </div>
+
+       <div class="container-fluid col-xs-0 col-sm-3 col-md-2" style="height:150%; margin-top:1.6%;">
+          <img class="img-responsive" id="companyLogo"  style="" src="{% static 'img/Townlogo.png' %}"/>
+       </div>
+         
+  </div>
 
 
 {% endblock %}
