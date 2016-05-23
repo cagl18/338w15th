@@ -123,8 +123,19 @@ input[type="submit"]:hover
       height:5em; 
       float:left;
     }
+    #listingLogo
+    {
+      margin-top: -15%;
+    }
+@media only screen and (max-width: 2000px) {
+    
+    #listingLogo
+    {
+      margin-top: -10%;
+    }
+}
   
-@media only screen and (max-width: 1720px) {
+@media only screen and (max-width: 1850px) {
     
     #arrow
     {
@@ -144,12 +155,20 @@ input[type="submit"]:hover
        width:180px !important; 
        margin-top: 0px;
     }
+    #listingLogo
+    {
+      margin-top: -15%;
+    }
 }
 @media only screen and (max-width: 1220px) {
 #companyLogo
     { 
        width:120px !important; 
        margin-top: 8px;
+    }
+    #listingLogo
+    {
+      margin-top: -15%;
     }
 }
 
@@ -166,6 +185,10 @@ input[type="submit"]:hover
     }
     #stickyFooter {
       height: 5em;
+    }
+    #listingLogo
+    {
+      margin-top: -15%;
     }
   }
 
@@ -354,7 +377,7 @@ img {
 {% block form %}
   
   
-    <div class="container-fluid" style="margin-top: -15%;"> 
+    <div class="container-fluid" id="listingLogo"> 
        <div class="container center-block" style = "padding:0;">
           <a href="#contactForm">
             <img class="img-responsive" src="{% static 'img/LogoSilver.png' %}"/>

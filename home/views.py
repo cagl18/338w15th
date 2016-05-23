@@ -60,7 +60,7 @@ def home(request):
 		return HttpResponseRedirect("/thanks")
 		# return render(request, "yourapp/email.html", {'form': form})
 	# content = {"form":form,"image":'home.png'}
-	content = {}
+	content = {"form":form}
 	template= "home.html"
 	return render(request, template, content)
 
