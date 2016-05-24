@@ -38,11 +38,10 @@
     padding: 2.5em 1em 1em 1em;
   }
   .focusedInput {
-    border-color: rgba(208, 89, 99, 0.8);
+    background-color: #f2dede !important;
+    border: 1px solid #E4A4AF !important;
     outline: 0;
     outline: thin dotted \9;
-    -moz-box-shadow: 0 0 8px rgba(189, 151, 154, 0.6);
-    box-shadow: 0 0 8px rgba(189, 151, 154, 0.6) !important;
   }
   input,textarea
   {
@@ -409,17 +408,21 @@ img {
               <form id = "contactForm" class= "form-horizontal" method="POST" action = "">  {% csrf_token %}
                   <div class='form-group form-group-lg' >
                   <!-- {{ form.as_p }} -->
-                    {% if form.errors %}
-                        {% for err in form.errors %}
 
-                        <div class="alert alert-danger alert-dismissible" role="alert">
+                   <div class="row center-block container-fluid" style = "padding-top:1em;">
+
+                      {% if form.errors %}
+                        {% for err in form.errors %}
+                       <div class="col-xs-12 col-sm-12 col-centered">
+                        <div class="alert alert-danger alert-dismissible" style ="margin:0 0 4px 4px;"role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <strong>Oh snap!</strong> The {{ err }} field is required.
                         </div>
+                      </div>
                         {% endfor %}
-                    {% endif %}
+                      {% endif %}
 
-                   <div class="row center-block container-fluid" style = "padding-top:1em;">
+
                       <div class="col-xs-12 col-sm-12 col-centered">
                         <div class="row lead-form">
                             <div class="col-xs-12 col-sm-6"> 
