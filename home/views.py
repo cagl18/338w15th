@@ -58,6 +58,7 @@ def home(request):
 		except:
 			pass
 		return HttpResponseRedirect("/thanks")
+		
 		# return render(request, "yourapp/email.html", {'form': form})
 	# content = {"form":form,"image":'home.png'}
 	content = {"form":form}
