@@ -36,6 +36,7 @@ EMAIL_HOST_USER = 'copier@townresidential.com'
 EMAIL_HOST_PASSWORD = 'Q29weXRoMTU'
 EMAIL_PORT = 25
 EMAIL_USE_TLS = True 
+DEFAULT_FROM_EMAIL = 'noreply@townresidential.com'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 # DEFAULT_FROM_EMAIL = 'noreply@townresidential.com'

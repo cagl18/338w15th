@@ -52,11 +52,11 @@ def home(request):
 		message = 'Great News, You got a new lead! \n\nName: %s %s \nPhone: %s \nEmail: %s \nAddress: %s %s %s %s \nBroker: %s \nComment / Questions?: %s' \
 		%(firstname,lastname,phone_number,email,address,city,state,zip_code,broker,comments)
 
-		# try:
-		# 	send_mail(subject, message, from_email, ['cgonzalez@townresidential.com'],
-		# 		fail_silently=True)
-		# except:
-		# 	pass
+		try:
+			send_mail(subject, message, from_email, ['cgonzalez@townresidential.com'],
+				fail_silently=True)
+		except:
+			pass
 		return HttpResponseRedirect("/thanks")
 		# return render(request, "yourapp/email.html", {'form': form})
 	# content = {"form":form,"image":'home.png'}
