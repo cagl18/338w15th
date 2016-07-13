@@ -54,11 +54,11 @@ def home(request):
 
 		try:
 			send_mail(subject, message, from_email, ['cgonzalez@townresidential.com'],
-				fail_silently=True)
+				fail_silently=False)
 		except:
 			pass
 		return HttpResponseRedirect("/thanks")
-		
+
 		# return render(request, "yourapp/email.html", {'form': form})
 	# content = {"form":form,"image":'home.png'}
 	content = {"form":form}
