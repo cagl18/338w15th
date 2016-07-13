@@ -53,7 +53,7 @@ def home(request):
 		%(firstname,lastname,phone_number,email,address,city,state,zip_code,broker,comments)
 
 		try:
-			send_mail(subject, message, from_email, ['cgonzalez@townresidential.com','dtejeda@townresidential.com'],
+			send_mail(subject, message, from_email, ['prince@townresidential.com'],
 				fail_silently=False)
 		except:
 			pass
