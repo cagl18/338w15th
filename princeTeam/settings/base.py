@@ -31,12 +31,18 @@ ALLOWED_HOSTS = []
 
 # testing Django email functionality 
 
-EMAIL_HOST = 'townresidential-com.mail.protection.outlook.com'
-EMAIL_HOST_USER = 'copier@townresidential.com' 
-EMAIL_HOST_PASSWORD = 'Q29weXRoMTU'
-EMAIL_PORT = 25
-EMAIL_USE_TLS = True 
-DEFAULT_FROM_EMAIL = 'noreply@townresidential.com'
+# EMAIL_HOST = 'townresidential-com.mail.protection.outlook.com'
+# EMAIL_HOST_USER = 'copier@townresidential.com' 
+# EMAIL_HOST_PASSWORD = 'Q29weXRoMTU'
+# EMAIL_PORT = 25
+# EMAIL_USE_TLS = True 
+# DEFAULT_FROM_EMAIL = 'noreply@townresidential.com'
+
+EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
+EMAIL_HOST= 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 # DEFAULT_FROM_EMAIL = 'noreply@townresidential.com'
