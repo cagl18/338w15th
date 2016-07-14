@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect,Http404
 from .forms import LeadForm
 from .models import Lead
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
 
 # Create your views here.
@@ -56,13 +56,11 @@ def home(request):
 			# send_mail(subject, message, from_email, ['prince@townresidential.com','jperkal@townresidential.com','ktruglio@townresidential.com'],
 			# 	fail_silently=False)
 
-			from django.core.mail import EmailMessage
-
 			email = EmailMessage(
 				subject,
 				message,
 				from_email,
-				['dtejeda@townresidential.com'],
+				['prince@townresidential.com','jperkal@townresidential.com','ktruglio@townresidential.com'],
 				['cgonzalez@townresidential.com'],
 				# reply_to=['another@example.com'],
 				# headers={'Message-ID': 'foo'},
