@@ -67,6 +67,7 @@ def home(request):
 				# reply_to=['another@example.com'],
 				# headers={'Message-ID': 'foo'},
 			)
+			email.send()
 		except:
 			pass
 		return HttpResponseRedirect("/thanks")
