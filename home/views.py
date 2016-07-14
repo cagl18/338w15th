@@ -53,8 +53,20 @@ def home(request):
 		%(firstname,lastname,phone_number,email,address,city,state,zip_code,broker,comments)
 
 		try:
-			send_mail(subject, message, from_email, ['prince@townresidential.com'],
-				fail_silently=False)
+			# send_mail(subject, message, from_email, ['prince@townresidential.com','jperkal@townresidential.com','ktruglio@townresidential.com'],
+			# 	fail_silently=False)
+
+			from django.core.mail import EmailMessage
+
+			email = EmailMessage(
+				subject,
+				message,
+				from_email,
+				['dtejeda@townresidential.com'],
+				['cgonzalez@townresidential.com'],
+				# reply_to=['another@example.com'],
+				# headers={'Message-ID': 'foo'},
+			)
 		except:
 			pass
 		return HttpResponseRedirect("/thanks")
