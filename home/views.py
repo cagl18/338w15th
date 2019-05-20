@@ -34,8 +34,9 @@ def home(request):
 		# preparing email content
 		email = form.cleaned_data['email']
 		from_email = settings.DEFAULT_FROM_EMAIL
-		receipts = ['prince@townresidential.com','jperkal@townresidential.com','ktruglio@townresidential.com']
+		# receipts = ['prince@townresidential.com','jperkal@townresidential.com','ktruglio@townresidential.com']
 		web_admin_email = ['cgonzalez@townresidential.com']
+		receipts = web_admin_email
 		subject = 'New Lead:338 West 15th'
 		firstname = form.cleaned_data['firstname']
 		lastname = form.cleaned_data['lastname']
