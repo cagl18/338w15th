@@ -1,12 +1,11 @@
 from django.shortcuts import render, HttpResponseRedirect,Http404
 from .forms import LeadForm
 from .models import Lead
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import EmailMessage
 from django.conf import settings
 
-# Create your views here.
-
 def get_ip(request):
+	 #this function will try to get user ip address from the request. 
 	try:
 		x_forward = request.META.get("HTTP_X_FORWARDED_HOST")
 		if x_forward:
@@ -19,22 +18,24 @@ def get_ip(request):
 
 
 def thanks(request):
-	content = {}
+	context = {}
 	template= "thanks.html"
-	return render(request, template, content)
+	return render(request, template, context)
 
 def home(request):
 	form = LeadForm(request.POST or None)
 
-	if form.is_valid():
-		# do not save it yet
-		new_lead = form.save(commit=False)
+	if form.is_valid(): 
+		new_lead = form.save(commit=False) # do not save form data yet
 		#used in case we would like to redirect the user to another page if email already exist.
-		email = form.cleaned_data['email']
 		new_lead.ip_address = get_ip(request)
 		new_lead.save()
 
+		# preparing email content
+		email = form.cleaned_data['email']
 		from_email = settings.DEFAULT_FROM_EMAIL
+		receipts = ['prince@townresidential.com','jperkal@townresidential.com','ktruglio@townresidential.com']
+		web_admin_email = ['cgonzalez@townresidential.com']
 		subject = 'New Lead:338 West 15th'
 		firstname = form.cleaned_data['firstname']
 		lastname = form.cleaned_data['lastname']
@@ -53,116 +54,34 @@ def home(request):
 		%(firstname,lastname,phone_number,email,address,city,state,zip_code,broker,comments)
 
 		try:
-			# send_mail(subject, message, from_email, ['prince@townresidential.com','jperkal@townresidential.com','ktruglio@townresidential.com'],
-			# 	fail_silently=False)
-
 			email = EmailMessage(
 				subject,
 				message,
 				from_email,
-				['prince@townresidential.com','jperkal@townresidential.com','ktruglio@townresidential.com'],
-				['cgonzalez@townresidential.com'],
+				receipts,
+				web_admin_email,
 				# reply_to=['another@example.com'],
 				# headers={'Message-ID': 'foo'},
 			)
 			email.send()
 		except:
-			pass
+			# report issue to developer
+			subject = "Error email send failed" + subject
+			message = "Error occured while trying to send email to website owner.\n Original message:" + message
+			email = EmailMessage(
+				subject,
+				message,
+				web_admin_email,
+				web_admin_email,
+			)
+			email.send()
 		return HttpResponseRedirect("/thanks")
 
-		# return render(request, "yourapp/email.html", {'form': form})
-	# content = {"form":form,"image":'home.png'}
 	content = {"form":form}
 	template= "home.html"
 	return render(request, template, content)
 
-# def thanks(request):
-#     return HttpResponse('Thank you for your message.')
-
-
-
-# 	    contact_name = request.POST.get(
-#                 'contact_name'
-#             , '')
-#             contact_email = request.POST.get(
-#                 'contact_email'
-#             , '')
-#             form_content = request.POST.get('content', '')
-
-#             # Email the profile with the 
-#             # contact information
-#             template = 
-#                 get_template('contact_template.txt')
-#             context = Context({
-#                 'contact_name': contact_name,
-#                 'contact_email': contact_email,
-#                 'form_content': form_content,
-#             })
-#             content = template.render(context)
-
-#             email = EmailMessage(
-#                 "New contact form submission",
-#                 content,
-#                 "Your website" +'',
-#                 ['youremail@gmail.com'],
-#                 headers = {'Reply-To': contact_email }
-#             )
-#             email.send()
-#             return redirect('contact')
-
-# 	    #print all "friends" that joined as a result of main sharer email
-# 	    # print(Join.objects.filter(friend=obj).count())
-# 	    # print(obj.referral.all().count())
-
-# 	    #redirect here
-# 	    return HttpResponseRedirect("/thanks")
-
-# 	content = {"form":form,"image":'home.png'}
-# 	template= "home.html"
-# 	return render(request, template, content)
 
 
 
 
-
-
-
-
-
-
-# 	if request.method == 'POST':
-#         form = form_class(data=request.POST)
-
-#         if form.is_valid():
-#             contact_name = request.POST.get(
-#                 'contact_name'
-#             , '')
-#             contact_email = request.POST.get(
-#                 'contact_email'
-#             , '')
-#             form_content = request.POST.get('content', '')
-
-#             # Email the profile with the 
-#             # contact information
-#             template = 
-#                 get_template('contact_template.txt')
-#             context = Context({
-#                 'contact_name': contact_name,
-#                 'contact_email': contact_email,
-#                 'form_content': form_content,
-#             })
-#             content = template.render(context)
-
-#             email = EmailMessage(
-#                 "New contact form submission",
-#                 content,
-#                 "Your website" +'',
-#                 ['youremail@gmail.com'],
-#                 headers = {'Reply-To': contact_email }
-#             )
-#             email.send()
-#             return redirect('contact')
-
-#     return render(request, 'contact.html', {
-#         'form': form_class,
-#     })

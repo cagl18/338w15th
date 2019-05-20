@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
 
-# Create your models here.
 class Lead(models.Model):
 	firstname = models.CharField(max_length =120)
 	lastname = models.CharField(max_length =120)
@@ -17,9 +16,5 @@ class Lead(models.Model):
 	ip_address = models.CharField(max_length=120, default = 'NA')
 	timestamp = models.DateTimeField(auto_now_add = True, auto_now = False)
 
-	# this str function needs to return a string
 	def __str__(self):
-		return self.email
-
-		# label='Are You a broker?'
-		# label='Comments or Questions?', 
+		return str(self.email)

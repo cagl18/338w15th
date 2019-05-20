@@ -44,13 +44,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
-# DEFAULT_FROM_EMAIL = 'noreply@townresidential.com'
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ''
-# EMAIL_USE_TLS = False 
-# EMAIL_PORT = 1025
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -145,13 +138,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-#STATIC_ROOT = '/Users/cagl18/Projects/Virtualenvs/lwc/src/static/static_root'
+#STATIC_ROOT = '/Projects/Virtualenvs/lwc/src/static/static_root'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'static_root')
 
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static', 'static_dirs'),
-    #'/Users/cagl18/Projects/Virtualenvs/lwc/src/static/static_dirs',
+    #'/Projects/Virtualenvs/lwc/src/static/static_dirs',
 )
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
