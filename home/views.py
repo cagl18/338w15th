@@ -65,7 +65,9 @@ def home(request):
 				# headers={'Message-ID': 'foo'},
 			)
 			email.send()
+			return HttpResponseRedirect("/thanks")
 		except:
+			pass
 			# report issue to developer
 			subject = "Error email send failed" + subject
 			message = "Error occured while trying to send email to website owner.\n Original message:" + message
@@ -76,7 +78,6 @@ def home(request):
 				web_admin_email,
 			)
 			email.send()
-		return HttpResponseRedirect("/thanks")
 
 	content = {"form":form}
 	template= "home.html"
