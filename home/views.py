@@ -69,15 +69,15 @@ def home(request):
 		except:
 			pass
 			# report issue to developer
-			subject = "Error email send failed" + subject
-			message = "Error occured while trying to send email to website owner.\n Original message:" + message
-			email = EmailMessage(
-				subject,
-				message,
-				web_admin_email,
-				web_admin_email,
-			)
-			email.send()
+			# subject = "Error email send failed" + subject
+			# message = "Error occured while trying to send email to website owner.\n Original message:" + message
+			# email = EmailMessage(
+			# 	subject,
+			# 	message,
+			# 	web_admin_email,
+			# 	web_admin_email,
+			# )
+			# email.send()
 
 	content = {"form":form}
 	template= "home.html"
