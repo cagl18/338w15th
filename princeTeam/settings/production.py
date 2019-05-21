@@ -1,6 +1,7 @@
 import os
 # from django.conf import settings
 from django.conf import settings
+from decouple import config
 
 DEBUG = True
 
