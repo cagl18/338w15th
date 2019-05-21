@@ -38,10 +38,12 @@ ALLOWED_HOSTS = []
 # EMAIL_USE_TLS = True 
 # DEFAULT_FROM_EMAIL = 'noreply@townresidential.com'
 
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_PORT = os.environ.get('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', cast=bool)
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')#'Onetown Team <noreply@townresidential.com>'
+EMAIL_SUBJECT_PREFIX = '[338w15th] '
 EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME')
-EMAIL_HOST= 'smtp.sendgrid.net'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
