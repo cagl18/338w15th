@@ -2,7 +2,7 @@ import os
 # from django.conf import settings
 from django.conf import settings
 
-DEBUG = True
+DEBUG = False
 
 DATABASES = settings.DATABASES
 
@@ -17,3 +17,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['carlosgonzalez.pro']
 
+EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME')
+EMAIL_HOST= 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
