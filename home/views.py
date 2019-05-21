@@ -67,7 +67,7 @@ def home(request):
 			email.send()
 			return HttpResponseRedirect("/thanks")
 		except Exception as e:
-                print("Error",e) 
+				print("Error",e) 
 			
 			# report issue to developer
 			# subject = "Error email send failed" + subject
