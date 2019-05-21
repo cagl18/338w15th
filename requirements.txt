@@ -5,3 +5,4 @@ django-toolbelt==0.0.1
 gunicorn==19.5.0
 psycopg2==2.6.1
 static3==0.7.0
+python-decouple==3.1
