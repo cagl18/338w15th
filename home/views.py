@@ -66,8 +66,8 @@ def home(request):
 			)
 			email.send()
 			return HttpResponseRedirect("/thanks")
-		except:
-			pass
+		except e:
+			print("Error *****",e)
 			# report issue to developer
 			# subject = "Error email send failed" + subject
 			# message = "Error occured while trying to send email to website owner.\n Original message:" + message
